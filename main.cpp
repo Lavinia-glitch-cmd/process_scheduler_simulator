@@ -5,22 +5,18 @@ using namespace std;
 class proces
 {
     private:
-        int pid, prioritate, timp_ramas, timp_executie, timp_astepare;
+        int pid=0, prioritate=0, timp_ramas=0, timp_executie=0, timp_astepare=0;
         char *nume_proces;
-        bool proces_terminat;
+        bool proces_terminat=false;
 
     public:
         proces()
         {
-            pid=0;
-            prioritate=0;
-            timp_executie=0;
-            timp_astepare=0;
-            timp_ramas=0;
-            proces_terminat=false;
-            strcpy(nume_proces,"");
+            nume_proces = new char[1];
 
         }
+
+        
 
 };
 
