@@ -2,7 +2,7 @@
 #include <cstring>
 using namespace std;
 
-class proces
+class proces 
 {
     private:
         int pid=0, prioritate=0, timp_ramas=0, timp_executie=0, timp_astepare=0;
@@ -16,8 +16,15 @@ class proces
 
         }
 
-        
+        void citire()
+        {
+            cout<<"PID: "; cin>>pid;
+            cout<<"prioritate: "; cin>>prioritate;
+            cout<<"rimpul de executie: "; cin>>timp_executie;
+            cout<<"prioritatea procesului: "; cin>>prioritate;
 
+            timp_ramas = timp_executie; // initialised remaining time to maximum
+        }
 };
 
 class coada_de_procese
@@ -25,7 +32,7 @@ class coada_de_procese
     private:
 
 
-    public:
+    public: 
 
 };
 
