@@ -6,23 +6,43 @@ using namespace std;
 class proces
 {
     private:
-        int pid,prioritate,timp_ramas, timp_executie, timp_asteptare;
+        int pid,prioritate,timp_ramas, timp_exec, timp_asteptare;
         bool proces_terminat;
         char *nume;
+        static int numar_procese;
     
     public:
-        proces();
+        proces(int pid, int prioritate, int timp_exec, int proces_terminat, char *nume);
         ~proces();
 
         void citire();
         void afisare();
 };
 
-proces::proces()
+int proces::numar_procese=0;
+
+proces::proces(int pid, int prioritate, int timp_exec, int proces_terminat, char *nume):
+    pid(numar_procese++),prioritate(prioritate), timp_exec(timp_exec),timp_ramas(timp_exec),timp_asteptare(0), proces_terminat(proces_terminat)
 {
-    pid=0;prioritate=0;timp_ramas=0;timp_executie=0;timp_asteptare=0;
-    proces_terminat=false;
-    nume = strcpy(new char[1], "");
+    if(nume!=nullptr)
+        {
+            this->nume=new char[(strlen(nume)+1)];
+            strcpy(this->nume, nume);
+        }
+    else 
+    {
+        this->nume=new char[1];
+        strcpy(this->nume, "");
+
+    }
+}
+proces::~proces()
+{
+    if(this->nume !=nullptr) ////to-do: fix this bug 
+    {
+        delete[] nume;
+        this->nume=nullptr;
+    }
 }
 void proces::citire()
 {
@@ -35,7 +55,18 @@ void proces::citire()
     cout<<"prioritate: ";cin>>prioritate;
     cout<<"timp de executie: ";cin>>timp_executie;
 }
+void proces::afisare()
+{
 
+}
+
+class scheduler()
+{
+    private:
+
+    public:
+        
+};
 int main()
 {
     int optiune;
